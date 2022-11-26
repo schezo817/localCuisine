@@ -1,31 +1,28 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"fmt"
-	"os"
-
-	_ "github.com/go-sql-driver/mysql"
-
-	"github.com/jinzhu/gorm"
-	"github.com/joho/godotenv"
 )
 
 func main() {
-	err := godotenv.Load("./.env")
-	DBMS := os.Getenv("DBMS")
-	USER := os.Getenv("CAMP_USER")
-	PASS := os.Getenv("PASS")
-	PROTOCOL := os.Getenv("PROTOCOL")
-	DBNAME := os.Getenv("DBNAME")
-	fmt.Print(DBMS)
-	fmt.Print(USER)
+	router := gin.Default()
 
-	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+	router.POST("/test", func(c *gin.Context) {
+		a:=c.PostForm("name")
+		fmt.Println(a)
+	})
 
-	_, err = gorm.Open(DBMS, CONNECT)
-	if err != nil {
-		panic(err.Error())
-	} else {
-		fmt.Println("DB接続成功")
-	}
+	router.GET("/", func(c *gin.Context) {
+    name := c.Query("name")
+    fmt.Println(name)
+		c.JSON(200, gin.H{
+			"ID": "1",
+			"県名": "北海道",
+			"料理名": "ちゃんちゃん焼き",
+			"説明": "魚",
+		})
+  })
+
+	router.Run(":8080")
 }

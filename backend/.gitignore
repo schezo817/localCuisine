@@ -1,3 +1,6 @@
 go.mod
 go.sum
 .env
+tmp
+gitPush.sh
+main

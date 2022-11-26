@@ -56,14 +56,19 @@ for data in tqdm(zip(href_area, prefe_names)):
     # 県名 ローマ字五十音順
     soup = get_soup(url="https://www.maff.go.jp"+data[0])
 
+    for data2 in soup.find_all("a", class_="hover")[1:]:
+        # https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu/menu/butadon_hokkaido.html
+        soup2 = get_soup(
+            url="https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/search_menu"+data2.get("href")[2:])
+        ul = soup2.find_all("ul", class_="menu_details print_none")
+        for data3 in ul:
+            text.append(data3.find("p").get_text())
+        # break
     for data2 in zip(soup.find_all("p", class_="tit"), soup.find_all("p", class_="txt")):
         prefe.append(data[1])
         tit.append(data2[0].get_text())
-        text.append(data2[1].get_text())
+    # breakdf["県名"] = prefe
 
-    # break
-
-df["県名"] = prefe
 df["料理名"] = tit
 df["説明"] = text
 print(df.head())
