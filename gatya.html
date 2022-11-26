@@ -8,9 +8,15 @@
   <link rel="stylesheet" type="text/css" href="gatya.css">
 </head>
 <body>
-  <a href="index.html" class="backHome">ホームに戻る</a>
-  <p style="text-align: center"><a href="gatya.html" class="btn-square">ガチャを回す</a></p>
-  <div id="result" class="waku" style="background-color: #FFE7BF"></div>
+  <div class="waku">
+    <a href="index.html" class="backHome">ホームに戻る</a>
+    <p style="text-align: center"><a href="gatya.html" class="btn-square" onClick="gatyaStart()">ガチャを回す</a></p>
+    <div id="result">
+      <p id="result2">料理名：</p>
+      <p id="result1">県名：</p>
+      <p id="result3">説明：</p>
+    </div>
+  </div>
 
   <script src="gatya.js"></script>
 </body>
