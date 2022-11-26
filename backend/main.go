@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
@@ -12,12 +14,12 @@ import (
 )
 
 type cuisines struct {
+	ID              string `json:"id"`
 	Prefecture      string `json:"prefecture"`
 	Name            string `json:"name"`
 	Overview        string `json:"overview"`
-	Prefecture_id   string  `json:"prefecture_id"`
+	Prefecture_id   string `json:"prefecture_id"`
 	Partly_overview string `json:"partly_overview"`
-	ID              string  `json:"id"`
 }
 
 func main() {
@@ -32,24 +34,43 @@ func main() {
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 
 	db, _ := gorm.Open(DBMS, CONNECT)
-	var cuisine cuisines
-	db.Where("Prefecture_id=?", "1").Find(&cuisine)
-	fmt.Println(cuisine.Prefecture)
 
 	router := gin.Default()
 
+	// 県番号を受け取ってデータを返す
 	router.POST("/search", func(c *gin.Context) {
 		number := c.Query("number")
-		fmt.Println("値を受け取りました")
-		fmt.Println(number)
+		var cuisine cuisines
+		db.Where("Prefecture_id=?", string(number)).Find(&cuisine)
+		fmt.Println(cuisine)
+
+		c.JSON(200, gin.H{
+			"id":              cuisine.ID,
+			"prefe_name":      cuisine.Prefecture,
+			"cuisine_name":    cuisine.Name,
+			"overview":        cuisine.Overview,
+			"prefe_id":        cuisine.Prefecture_id,
+			"partly_overview": cuisine.Partly_overview,
+		})
+
 	})
 
+	// ランダムにデータを返す
 	router.GET("/gacha", func(c *gin.Context) {
+		rand.Seed(time.Now().UnixNano())
+		number := rand.Intn(6000) % 1365
+
+		var cuisine cuisines
+		fmt.Println(number)
+		db.Where("id = ?", number).First(&cuisine)
+
 		c.JSON(200, gin.H{
-			"ID":  "1",
-			"県名":  "北海道",
-			"料理名": "ちゃんちゃん焼き",
-			"説明":  "魚",
+			"id":              cuisine.ID,
+			"prefe_name":      cuisine.Prefecture,
+			"cuisine_name":    cuisine.Name,
+			"overview":        cuisine.Overview,
+			"prefe_id":        cuisine.Prefecture_id,
+			"partly_overview": cuisine.Partly_overview,
 		})
 	})
 
@@ -60,14 +81,24 @@ func main() {
 	// 	fmt.Println(a)
 	// })
 
+	// ランダムにデータを返す
 	router.GET("/quiz", func(c *gin.Context) {
+		rand.Seed(time.Now().UnixNano())
+		number := rand.Intn(6000) % 1365
+
+		var cuisine cuisines
+		fmt.Println(number)
+		db.Where("id = ?", number).First(&cuisine)
+
 		c.JSON(200, gin.H{
-			"ID":  "1",
-			"県名":  "北海道",
-			"料理名": "ちゃんちゃん焼き",
-			"説明":  "魚",
+			"id":              cuisine.ID,
+			"prefe_name":      cuisine.Prefecture,
+			"cuisine_name":    cuisine.Name,
+			"overview":        cuisine.Overview,
+			"prefe_id":        cuisine.Prefecture_id,
+			"partly_overview": cuisine.Partly_overview,
 		})
 	})
-
+	defer db.Close()
 	router.Run(":8080")
 }
