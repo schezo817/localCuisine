@@ -67,8 +67,9 @@ for data in tqdm(zip(href_area, prefe_names)):
     for data2 in zip(soup.find_all("p", class_="tit"), soup.find_all("p", class_="txt")):
         prefe.append(data[1])
         tit.append(data2[0].get_text())
-    # breakdf["県名"] = prefe
+    # break
 
+df["県名"] = prefe
 df["料理名"] = tit
 df["説明"] = text
 print(df.head())

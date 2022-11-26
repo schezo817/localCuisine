@@ -18,7 +18,7 @@ type cuisines struct {
 }
 
 func main() {
-	err := godotenv.Load("./.env")
+	err := godotenv.Load("../.env")
 	DBMS := os.Getenv("DBMS")
 	USER := os.Getenv("CAMP_USER")
 	PASS := os.Getenv("PASS")
@@ -54,6 +54,6 @@ func main() {
 			Overview:   row[3],
 		})
 
-		break
+		// break
 	}
 }
