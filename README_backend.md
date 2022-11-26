@@ -1,15 +1,16 @@
 ## 開発環境
 - 言語 <br/>
-Python or Go
-データ取得　Python
+Python or Go<br/>
+データ取得　Python<br/>
+バックエンド Go ?<br/>
 取得元: 農林水産省<br/>
 https://www.maff.go.jp/j/keikaku/syokubunka/k_ryouri/
 <br/>
 
-
 - データ管理 <br/>
-辞書、データベース <br/>
-データベースが難しそうなら辞書を使う <br/>
+データベース <br/>
+MySQl <br/>
+
 ## すること
 - 郷土料理のデータを取ってくる <br/>
 - データベースを作成する <br/>
@@ -25,3 +26,7 @@ python -m pip install -r requirements.txt
 データ件数 1365 件<br/>
 データ使用時は引用文献の記載の必要あり<br/>
 コラム名は「県名」「料理名」「説明」<br/>
+
+### データベース
+コラムは id prefecture name overview<br/>
+型は順に　int varchar varchar varchar<br/>

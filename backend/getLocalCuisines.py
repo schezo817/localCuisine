@@ -4,13 +4,10 @@
 from bs4 import BeautifulSoup
 import requests as req
 from time import sleep
-import re
-import csv
 from tqdm import tqdm
 import warnings
 import pandas as pd
 from bs4.element import SoupStrainer
-import uuid
 from time import sleep
 warnings.simplefilter("ignore")
 
