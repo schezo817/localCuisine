@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
@@ -12,9 +13,12 @@ import (
 )
 
 type cuisines struct {
-	Prefecture string `json:"prefecture"`
-	Name       string `json:"name"`
-	Overview   string `json:"overview"`
+	ID              string `json:"id"`
+	Prefecture      string `json:"prefecture"`
+	Name            string `json:"name"`
+	Overview        string `json:"overview"`
+	Prefecture_id   string `json:"prefecture_id"`
+	Partly_overview string `json:"partly_overview"`
 }
 
 func main() {
@@ -28,14 +32,11 @@ func main() {
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 
 	db, err := gorm.Open(DBMS, CONNECT)
-	
+
 	if err != nil {
 		panic(err.Error())
-	} else {
-		fmt.Println("DB接続成功")
 	}
 
-	
 	file, err := os.Open("local_cuisine.csv")
 	r := csv.NewReader(file) // csv.NewReaderを使ってcsvを読み込む
 
@@ -49,11 +50,14 @@ func main() {
 		}
 		// データベースへの挿入
 		db.Create(&cuisines{
-			Prefecture: row[1],
-			Name:       row[2],
-			Overview:   row[3],
+			ID:              strings.Replace(row[0], "%", "", 1),
+			Prefecture:      row[1],
+			Name:            row[2],
+			Overview:        row[3],
+			Prefecture_id:   strings.Replace(row[4], "%", "", 1),
+			Partly_overview: row[5],
 		})
-
+		// fmt.Println(strings.Replace(row[4],"%","",1))
 		// break
 	}
 }

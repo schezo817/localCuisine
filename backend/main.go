@@ -2,11 +2,40 @@ package main
 
 import (
 	"fmt"
+	"os"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
+	"github.com/joho/godotenv"
 
 	"github.com/gin-gonic/gin"
 )
 
+type cuisines struct {
+	Prefecture      string `json:"prefecture"`
+	Name            string `json:"name"`
+	Overview        string `json:"overview"`
+	Prefecture_id   string  `json:"prefecture_id"`
+	Partly_overview string `json:"partly_overview"`
+	ID              string  `json:"id"`
+}
+
 func main() {
+
+	godotenv.Load("./.env")
+	DBMS := os.Getenv("DBMS")
+	USER := os.Getenv("CAMP_USER")
+	PASS := os.Getenv("PASS")
+	PROTOCOL := os.Getenv("PROTOCOL")
+	DBNAME := os.Getenv("DBNAME")
+
+	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+
+	db, _ := gorm.Open(DBMS, CONNECT)
+	var cuisine cuisines
+	db.Where("Prefecture_id=?", "1").Find(&cuisine)
+	fmt.Println(cuisine.Prefecture)
+
 	router := gin.Default()
 
 	router.POST("/search", func(c *gin.Context) {
