@@ -4,3 +4,4 @@ go.sum
 tmp
 gitPush.sh
 main
+.air.toml

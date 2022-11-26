@@ -30,3 +30,14 @@ python -m pip install -r requirements.txt
 ### データベース
 コラムは id prefecture name overview<br/>
 型は順に　int varchar varchar varchar<br/>
+
+
+## サーバー側
+フロントへ JSON 渡し<br/>
+/search<br/>
+POST 県に割り当てた数字を受け取る<br/>
+/gacha　<br/>
+GET ランダムに郷土料理データを渡す<br/>
+/quiz<br/>
+GET ランダムに郷土料理データを渡す<br/>
+答え合わせはフロント想定<br/>
