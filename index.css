@@ -1,27 +1,44 @@
 @charset "utf-8";
 
+
 body{
-  background-image: url(images/backgroud.jpg);
+  font-family: 'Zen Kurenaido', sans-serif;
+  writing-mode: vertical-rl;
+  background-image:url(images/kasa.jpg);
+  background-size: cover;
+}
+.subback{
+  background-image: url(images/subback.jpg);
+  margin-top:10%;
+  margin-bottom:10%;
+}
+.subback img{
+  margin-top:15%;
+  margin-right:7%;
+  margin-left:10%;
 }
 #appTitle{
-  font-size:700%;
+  font-size:600%;
   text-align: center;
-  margin-bottom:3%;
+  margin-right:13%;
+  margin-left:2.5%;
 }
 #setumei{
-  font-size: 150%;
-  text-align:center;
-  margin-top:-1%;
+  font-size: 200%;
+  margin-top:20%;
+  margin-right:5%;
+  margin-left:5%;
 }
 /*==================================================
 スライダーのためのcss
 ===================================*/
 .slider{
-  margin: 3% 12% 4% 12%;
+  position:relative;
+  margin: 0% 0% 0% 0%;
 }
 .slider img {
-    width:100%;/*スライダー内の画像を横幅100%に*/
-    height:140%;
+    width:50%;/*スライダー内の画像を横幅100%に*/
+    height:50%;
 }
 
 /*slickのJSで書かれるタグ内、スライド左右の余白調整*/
@@ -30,10 +47,9 @@ body{
     margin:0 10px;/*スライド左右の余白調整*/
 }
 
-.link{
-  text-align:center;
-}
 .link a{
+  margin-top: 20%;
+  margin-right: 15%;
   font-size:350%;
-  padding:5% 10% 5% 10%;
+  line-height: 2;
 }
