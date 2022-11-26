@@ -1,6 +1,12 @@
 ## 開発環境
 - 言語 <br/>
-Python のつもり
+Python or Go
+データ取得　Python
+
+```Python
+python -m pip install -r requirements.txt
+```
+
 - データ管理 <br/>
 辞書、データベース <br/>
 データベースが難しそうなら辞書を使う <br/>
