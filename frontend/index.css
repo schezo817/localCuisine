@@ -46,3 +46,12 @@ body{
   height:50%;
   width: 50%;
 }
+ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px;
+  
+  width:55%;
+  height:55%;
+  list-style-type: none;
+}
