@@ -45,7 +45,7 @@ for(i in obj){
 
 function quizStart(){
   //JSONデータの長さ分のランダム数
-  let rand = Math.floor(Math.random()*ryorilength);
+  var rand = Math.floor(Math.random()*ryorilength);
   //key設定
   let key = Object.keys(obj);
   document.getElementById('result1').textContent = '県名'+"："+ ary[rand].prefe_name;
@@ -54,7 +54,7 @@ function quizStart(){
 
 function answer(){
   let rand2 = rand;
-  window.confirm('正解は'+"："+ary[rand].cuisine_name+'です。');
+  window.confirm('正解は'+"："+ary[rand2].cuisine_name+'です。');
 }
 /*
 //JSONデータの長さ分のランダム数
