@@ -61,12 +61,6 @@ function quizStart(num){
     window.confirm('正解は'+"："+ary[rand].cuisine_name+'です。');
   }
 }
-
-function answer(){
-  let rand2 = random();
-  console.log(random)
-  window.confirm('正解は'+"："+ary[rand2].cuisine_name+'です。');
-}
 /*
 //JSONデータの長さ分のランダム数
 let rand = Math.floor(Math.random()*ryorilength);
