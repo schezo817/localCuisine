@@ -37,9 +37,10 @@ func main() {
 
 	router := gin.Default()
 	router.LoadHTMLGlob("./*.html")
-	
+
 	router.Static("/src/css", "./src/css")
 	router.Static("/src/js", "./src/js")
+
 
 	// 県番号を受け取ってデータを返す
 	router.POST("/search", func(c *gin.Context) {
@@ -105,7 +106,27 @@ func main() {
 	})
 
 	router.GET("/", func(c *gin.Context) {
+		c.HTML(200, "index.html", gin.H{
+			"id": "変数をバックエンドからフロントへ渡しています",
+		})
+	})
+	router.GET("/index.html", func(c *gin.Context) {
+		c.HTML(200, "index.html", gin.H{
+			"id": "変数をバックエンドからフロントへ渡しています",
+		})
+	})
+	router.GET("/gatya.html", func(c *gin.Context) {
 		c.HTML(200, "gatya.html", gin.H{
+			"id": "変数をバックエンドからフロントへ渡しています",
+		})
+	})
+	router.GET("/kensaku.html", func(c *gin.Context) {
+		c.HTML(200, "kensaku.html", gin.H{
+			"id": "変数をバックエンドからフロントへ渡しています",
+		})
+	})
+	router.GET("/quiz.html", func(c *gin.Context) {
+		c.HTML(200, "quiz.html", gin.H{
 			"id": "変数をバックエンドからフロントへ渡しています",
 		})
 	})
