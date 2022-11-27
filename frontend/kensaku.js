@@ -32,6 +32,12 @@ searchSample = [
     setumei:
       "食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
   },
+  {
+    kenmei: "愛知県",
+    ryori: "エビフライ",
+    setumei:
+      "おいしい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
+  },
 
   {
     kenmei: "東京都",
@@ -40,9 +46,10 @@ searchSample = [
       "匠の技食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
   },
 ];
+cuisinecount = 5;
 
 function searchLocalCuisine() {
-  for (currentId = 0; currentId < 4; currentId++) {
+  for (currentId = 0; currentId < cuisinecount; currentId++) {
     if (searchSample[currentId].kenmei == select.value) {
       console.log(searchSample[currentId].kenmei);
       document.getElementById("result1").textContent =
