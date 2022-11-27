@@ -9,17 +9,18 @@ body{
   margin-left:3%;
 }
 .btn-square{
-  font-size:400%;
+  font-size:450%;
 }
 .waku{
   margin:8% 10% 5% 10%;
   background-image: url(images/subback.jpg);
 }
 #result{
-  font-size:250%;
+  font-size:230%;
   margin-left:10%;
   margin-right: 10%;
-  padding-bottom:15%;
+  margin-top: 5%;
+  padding-bottom:5%;
 }
 br{
   padding:10px;
