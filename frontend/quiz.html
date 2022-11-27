@@ -13,13 +13,13 @@
 <body>
   <div class="waku">
     <a href="index.html" class="backHome">ホームに戻る</a>
-    <p style="text-align: center" onClick="quizStart()"><button class="btn-square">クイズを見る</button></p>
+    <p style="text-align: center" onClick="quizStart(0)"><button class="btn-square">クイズを見る</button></p>
     <div id="result">
       <p id="hinto"><strong>ヒント</strong></p>
       <p id="result1">県名：</p>
       <p id="result2">説明：</p>
     </div>
-    <p style="text-align: center" onClick="answer()"><button class="btn-square2">答えを見る</button></p>
+    <p style="text-align: center" onClick="quizStart(1)"><button class="btn-square2">答えを見る</button></p>
   </div>
   <script src="quiz.js"></script>
 </body>
