@@ -43,17 +43,28 @@ for(i in obj){
   ary.push(obj[i]);
 }
 
-function quizStart(){
-  //JSONデータの長さ分のランダム数
+function random(){
   var rand = Math.floor(Math.random()*ryorilength);
-  //key設定
-  let key = Object.keys(obj);
-  document.getElementById('result1').textContent = '県名'+"："+ ary[rand].prefe_name;
-  document.getElementById('result2').textContent = '説明'+"："+ary[rand].overview;
+  return rand;
+}
+
+function quizStart(num){
+  //JSONデータの長さ分のランダム数
+  let rand = Math.floor(Math.random()*ryorilength);
+  console.log(rand);
+  if(num==0){
+      //key設定
+    let key = Object.keys(obj);
+    document.getElementById('result1').textContent = '県名'+"："+ ary[rand].prefe_name;
+    document.getElementById('result2').textContent = '説明'+"："+ary[rand].overview;
+  }else if(num==1){
+    window.confirm('正解は'+"："+ary[rand].cuisine_name+'です。');
+  }
 }
 
 function answer(){
-  let rand2 = rand;
+  let rand2 = random();
+  console.log(random)
   window.confirm('正解は'+"："+ary[rand2].cuisine_name+'です。');
 }
 /*
