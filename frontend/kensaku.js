@@ -12,48 +12,45 @@ fetch(url)
   */
 
 //sample
-searchSample = {
-  members: [
-    {
-      kenmei: "大阪府",
-      ryori: "たこ焼き",
-      setumei:
-        "美味しいよ食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたいv食べたい食べたい食べたい食べたい",
-    },
-    {
-      kenmei: "福岡県",
-      ryori: "もつ鍋",
-      setumei:
-        "うまい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
-    },
+searchSample = [
+  {
+    kenmei: "大阪府",
+    ryori: "たこ焼き",
+    setumei:
+      "美味しいよ食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたいv食べたい食べたい食べたい食べたい",
+  },
+  {
+    kenmei: "福岡県",
+    ryori: "もつ鍋",
+    setumei:
+      "うまい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
+  },
 
-    {
-      kenmei: "愛知県",
-      ryori: "ひつまぶし",
-      setumei:
-        "食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
-    },
+  {
+    kenmei: "愛知県",
+    ryori: "ひつまぶし",
+    setumei:
+      "食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
+  },
 
-    {
-      kenmei: "東京都",
-      ryori: "深川丼",
-      setumei:
-        "匠の技食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
-    },
-  ],
-};
+  {
+    kenmei: "東京都",
+    ryori: "深川丼",
+    setumei:
+      "匠の技食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい食べたい",
+  },
+];
 
 function searchLocalCuisine() {
-  currentId = 0;
-  while (currentId < 4) {
-    if (searchSample[members][currentId][kenmei] == select) {
+  for (currentId = 0; currentId < 4; currentId++) {
+    if (searchSample[currentId].kenmei == select.value) {
+      console.log(searchSample[currentId].kenmei);
       document.getElementById("result1").textContent =
-        "県名" + "：" + searchSample[members][currentId][kenmei];
+        "県名" + ":" + searchSample[currentId].kenmei;
       document.getElementById("result2").textContent =
-        "料理名" + "：" + searchSample[members][currentId][ryori];
+        "料理名" + ":" + searchSample[currentId].ryori;
       document.getElementById("result3").textContent =
-        "説明" + "：" + searchSample[members][currentId][setumei];
+        "説明" + ":" + searchSample[currentId].setumei;
     }
-    currentId++;
   }
 }

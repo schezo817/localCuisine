@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>郷土料理検索</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +22,13 @@
         <option value="愛知県">愛知県</option>
         <option value="東京都">東京都</option>
       </select>
-      <input type="submit" value="検索する" onclick={searchLocalCuisine()}>
+      <input type="button" value="検索する" onClick="searchLocalCuisine()">
       <div id = "result">
         <p id="result2">料理名：</p>
         <p id="result1">県名：</p>
         <p id="result3">説明：</p>
       </div>
     </div>
-    <script src="kensaku.js"></script>
+    <script src="kensaku.js" async></script>
   </body>
 </html>
