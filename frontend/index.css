@@ -20,21 +20,29 @@ body{
   height: 55%;
 }
 #appTitle{
-  font-size:550%;
+  font-size:500%;
   text-align: center;
   padding-right: 3%;
   margin-right:15%;
   margin-left:2.5%;
 }
 #setumei{
-  font-size: 200%;
-  margin-top:20%;
-  margin-right:5%;
+  font-size: 150%;
+  margin-top:15%;
+  margin-right:2.5%;
   margin-left:5%;
+  line-height: 2.5;
 }
-.link a{
-  margin-top: 20%;
-  margin-right: 15%;
-  font-size:350%;
+.links a{
+  text-decoration: none;
+  margin-top: 15%;
+  margin-right: 10%;
+  font-size:300%;
   line-height: 2;
+}
+.links a.link{ color:white};
+.links a:visited{color:#a888be}
+#image{
+  height:50%;
+  width: 50%;
 }

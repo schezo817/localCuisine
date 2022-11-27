@@ -18,13 +18,19 @@ body{
   margin:8% 10% 5% 10%;
   background-image: url(images/subback.jpg);
 }
+#hinto{
+  font-size:120%;
+  margin-top:-2%;
+}
 #result{
   font-size:160%;
   margin-left:10%;
   margin-right: 10%;
-  margin-top: 5%;
-  padding-bottom:5%;
+  margin-top: 2.5%;
 }
-br{
-  padding:10px;
+.btn-square2{
+  font-family: 'Zen Kurenaido', sans-serif;
+  font-size:230%;
+  margin-top:2.5%;
+  margin-bottom:3%;
 }

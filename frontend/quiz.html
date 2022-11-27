@@ -8,19 +8,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="gatya.css">
+  <link rel="stylesheet" type="text/css" href="quiz.css">
 </head>
 <body>
   <div class="waku">
     <a href="index.html" class="backHome">ホームに戻る</a>
-    <p style="text-align: center" onClick="gatyaStart()"><button class="btn-square">ガチャを回す</button></p>
+    <p style="text-align: center" onClick="quizStart()"><button class="btn-square">クイズを見る</button></p>
     <div id="result">
-      <p id="result2">料理名：</p>
+      <p id="hinto"><strong>ヒント</strong></p>
       <p id="result1">県名：</p>
-      <p id="result3">説明：</p>
+      <p id="result2">説明：</p>
     </div>
+    <p style="text-align: center" onClick="answer()"><button class="btn-square2">答えを見る</button></p>
   </div>
-
-  <script src="gatya.js"></script>
+  <script src="quiz.js"></script>
 </body>
 </html>
