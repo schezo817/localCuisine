@@ -29,6 +29,8 @@ func main() {
 	PROTOCOL := os.Getenv("PROTOCOL")
 	DBNAME := os.Getenv("DBNAME")
 
+	print(USER)
+
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 
 	db, err := gorm.Open(DBMS, CONNECT)

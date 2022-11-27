@@ -36,10 +36,6 @@ func main() {
 	db, _ := gorm.Open(DBMS, CONNECT)
 
 	router := gin.Default()
-	router.LoadHTMLGlob("./*.html")
-	
-	router.Static("/src/css", "./src/css")
-	router.Static("/src/js", "./src/js")
 
 	// 県番号を受け取ってデータを返す
 	router.POST("/search", func(c *gin.Context) {
@@ -92,6 +88,7 @@ func main() {
 
 		var cuisine cuisines
 		fmt.Println(number)
+
 		db.Where("id = ?", number).First(&cuisine)
 
 		c.JSON(200, gin.H{
@@ -104,11 +101,6 @@ func main() {
 		})
 	})
 
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(200, "gatya.html", gin.H{
-			"id": "変数をバックエンドからフロントへ渡しています",
-		})
-	})
 	defer db.Close()
 	router.Run(":8080")
 }
