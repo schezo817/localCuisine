@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+
+body{
+  font-family: 'Zen Kurenaido', sans-serif;
+  writing-mode: vertical-rl;
+  background-image:url(images/kasa.jpg);
+  background-size: cover;
+}
+.subback{
+  background-image: url(images/subback.jpg);
+  margin-top:10%;
+  margin-bottom:10%;
+}
+.subback img{
+  margin-top:25%;
+  margin-right:5%;
+  margin-left:10%;
+  width: 55%;
+  height: 55%;
+}
+#appTitle{
+  font-size:550%;
+  text-align: center;
+  padding-right: 3%;
+  margin-right:15%;
+  margin-left:2.5%;
+}
+#setumei{
+  font-size: 200%;
+  margin-top:20%;
+  margin-right:5%;
+  margin-left:5%;
+}
+.link a{
+  margin-top: 20%;
+  margin-right: 15%;
+  font-size:350%;
+  line-height: 2;
+}
