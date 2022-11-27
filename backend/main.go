@@ -36,6 +36,10 @@ func main() {
 	db, _ := gorm.Open(DBMS, CONNECT)
 
 	router := gin.Default()
+	router.LoadHTMLGlob("./*.html")
+	
+	router.Static("/src/css", "./src/css")
+	router.Static("/src/js", "./src/js")
 
 	// 県番号を受け取ってデータを返す
 	router.POST("/search", func(c *gin.Context) {
@@ -56,7 +60,7 @@ func main() {
 	})
 
 	// ランダムにデータを返す
-	router.GET("/gacha", func(c *gin.Context) {
+	router.GET("/gatya", func(c *gin.Context) {
 		rand.Seed(time.Now().UnixNano())
 		number := rand.Intn(6000) % 1365
 
@@ -97,6 +101,12 @@ func main() {
 			"overview":        cuisine.Overview,
 			"prefe_id":        cuisine.Prefecture_id,
 			"partly_overview": cuisine.Partly_overview,
+		})
+	})
+
+	router.GET("/", func(c *gin.Context) {
+		c.HTML(200, "gatya.html", gin.H{
+			"id": "変数をバックエンドからフロントへ渡しています",
 		})
 	})
 	defer db.Close()

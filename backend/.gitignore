@@ -5,3 +5,5 @@ tmp
 gitPush.sh
 main
 .air.toml
+src/
+gatya.html
